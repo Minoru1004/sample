@@ -1,0 +1,36 @@
+<div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+  <div class="mb-10 md:mb-16">
+    <div class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">
+      4択クイズ
+    </div>
+    <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">
+      よくあるクイズアプリ的なものを作ってみた
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-3 gap-6">
+    <%= link_to level_path(1), class: 'group h-80 flex items-end bg-gray-100 rounded-lg overflow-hidden shadow-lg relative p-4' do %>
+      <%= image_tag 'level1.png', class: 'w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200', loading: :lazy, alt: 'レベル1' %>
+      <div class="bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50 absolute inset-0 pointer-events-none"></div>
+      <div class="flex flex-row relative w-full">
+        <div class="flex-1 text-white text-2xl lg:text-4xl font-semibold text-center">レベル1</div>
+      </div>
+    <% end %>
+
+    <%= link_to level_path(2), class: 'group h-80 flex items-end bg-gray-100 rounded-lg overflow-hidden shadow-lg relative p-4' do %>
+      <%= image_tag 'level2.png', class: 'w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200', loading: :lazy, alt: 'レベル1' %>
+      <div class="bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50 absolute inset-0 pointer-events-none"></div>
+      <div class="flex flex-row relative w-full">
+        <div class="flex-1 text-white text-2xl lg:text-4xl font-semibold text-center">レベル2</div>
+      </div>
+    <% end %>
+
+    <%= link_to level_path(3), class: 'group h-80 flex items-end bg-gray-100 rounded-lg overflow-hidden shadow-lg relative p-4' do %>
+      <%= image_tag 'level3.jpg', class: 'w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200', loading: :lazy, alt: 'レベル1' %>
+      <div class="bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50 absolute inset-0 pointer-events-none"></div>
+      <div class="flex flex-row relative w-full">
+        <div class="flex-1 text-white text-2xl lg:text-4xl font-semibold text-center">レベル3</div>
+      </div>
+    <% end %>
+  </div>
+</div>

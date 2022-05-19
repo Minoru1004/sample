@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      quiz: 問題
+    attributes:
+      quiz:
+        question: 問題文
+        selection1: 選択肢1
+        selection2: 選択肢2
+        selection3: 選択肢3
+        selection4: 選択肢4
+        answer: 正解
+        level: 難易度
