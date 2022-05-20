@@ -1,0 +1,58 @@
+<% content_for :header do %>
+  <%= javascript_include_tag "controllers/level", "data-turbo-track": "reload", defer: true %>
+<% end %>
+<div id="quiz-area">
+  <div class="flex justify-end">
+    <div href="#" class="bg-indigo-500 ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-full outline-none transition duration-100 px-8 py-3">
+      <span id="point" class="inline-block w-10 text-right">0</span>
+      点
+    </div>
+  </div>
+  <% @quizzes.each.with_index(1) do |quiz, index| %>
+    <div id="quiz-<%= index %>" class="quiz bg-white py-6 sm:py-8 lg:py-12 <%= 'hidden' if index > 1 %>">
+      <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+        <div class="max-w-xl flex flex-col items-center text-center mx-auto">
+          <p class="text-red-500 md:text-2xl xl:text-4xl font-semibold mb-4 md:mb-6">第<%= index %>問</p>
+
+          <div class="text-black-800 text-xl sm:text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-left">
+            <%= h(simple_format(quiz.question)) %>
+          </div>
+
+          <div class="w-full flex flex-col sm:flex-col sm:justify-center gap-2.5">
+            <button class="<%= quiz.answer == 1 ? 'correct' : 'wrong' %> inline-block bg-orange-500 hover:bg-orange-600 active:bg-orange-700 focus-visible:ring ring-orange-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
+              <%= quiz.selection1 %>
+            </button>
+            <button class="<%= quiz.answer == 2 ? 'correct' : 'wrong' %> inline-block bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 focus-visible:ring ring-yellow-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
+              <%= quiz.selection2 %>
+            </button>
+            <button class="<%= quiz.answer == 3 ? 'correct' : 'wrong' %> inline-block bg-green-500 hover:bg-green-600 active:bg-green-700 focus-visible:ring ring-green-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
+              <%= quiz.selection3 %>
+            </button>
+            <button class="<%= quiz.answer == 4 ? 'correct' : 'wrong' %> inline-block bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
+              <%= quiz.selection4 %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div id="correct_sign" class="hidden text-red-500 font-bold text-[12rem] md:text-[20rem] absolute inset-1/2 mt-[-22rem] ml-[-6rem] md:mt-[-14rem] md:ml-[-10rem]">
+    ○
+  </div>
+  <div id="wrong_sign" class="hidden text-blue-500 font-bold text-[12rem] md:text-[20rem] absolute inset-1/2 mt-[-22rem] ml-[-6rem] md:mt-[-14rem] md:ml-[-10rem]">
+    ✕
+  </div>
+</div>
+<div id="finish" class="hidden">
+  <div class="max-w-screen-2xl px-4 md:px-8 mx-auto mt-24 lg:mt-48">
+    <div class="flex flex-col items-center">
+      <span class="inline-flex items-center text-black-800 text-2xl md:text-3xl font-bold gap-2.5 mb-8">
+        4択クイズ
+      </span>
+
+      <h1 class="text-gray-800 text-2xl md:text-3xl font-bold text-center mb-12">あなたの得点は<span id="total-point" class="text-4xl md:text-5xl text-red-500"></span>点でした</h1>
+
+      <%= link_to 'トップに戻る', root_path, class: "inline-block bg-indigo-500 hover:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3" %>
+    </div>
+  </div>
+</div>
