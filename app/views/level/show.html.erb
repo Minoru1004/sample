@@ -1,5 +1,5 @@
-<% content_for :header do %>
-  <%= javascript_include_tag "controllers/level", "data-turbo-track": "reload", defer: true %>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "controllers/level" %>
 <% end %>
 <div id="quiz-area">
   <div class="flex justify-end">
