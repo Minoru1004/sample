@@ -4,14 +4,17 @@ $(function () {
   $(document).on('click', '.correct', function () {
     point += 10;
     $('#point').text(point);
-    nextQuiz();
+    $('#correct_sign').show();
+    setTimeout(nextQuiz, 1000);
   });
 
   $(document).on('click', '.wrong', function () {
-    nextQuiz();
+    $('#wrong_sign').show();
+    setTimeout(nextQuiz, 1000);
   });
 
   function nextQuiz() {
+    $('#correct_sign,#wrong_sign').hide();
     index += 1;
     var quizCount = $('.quiz').length;
     $('.quiz').hide();
