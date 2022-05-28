@@ -9,7 +9,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= content_for?(:header) ? yield(:header) : '' %>
+    <%= content_for?(:head) ? yield(:head) : '' %>
   </head>
 
   <body>
